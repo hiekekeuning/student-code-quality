@@ -1,29 +1,24 @@
 # Student code quality
 
-This document describes the steps to perform the automated analysis of student programs, as presented in the paper ‘Code Quality Issues in Student Programs’ [to be published].
+This document describes the steps to perform the automated analysis of student programs, as presented in the paper ‘Code Quality Issues in Student Programs’ [to appear in proceedings of ITiCSE 2017].
 The code is provided to perform checks, extend the analysis and allow replication. Comments and questions can be emailed to the first author.
 Both Java and Haskell is used for the automated analysis.
 
 ## Installation
 
-
 ### Blackbox database
 
 The database used is not publicly available. Permission to access the [Blackbox database](https://www.bluej.org/blackbox.html) needs to be requested with the maintainers.
 
-### PMD
-[PMD Version 5.5.2](http://pmd.github.io/pmd-5.5.2/)
+### [PMD Version 5.5.2](http://pmd.github.io/pmd-5.5.2/)
 Add custom ruleset [myrules](./PMD/myrules.xml) to pmd-java-5.5.2.jar.
 
-### CPD
-[CPD Version 5.4.1](http://pmd.github.io/pmd-5.4.1/usage/cpd-usage.html)
+### [CPD Version 5.4.1](http://pmd.github.io/pmd-5.4.1/usage/cpd-usage.html)
 A custom CPDRunner `CPDRunner.java` /bat file
 
-### cloc
-[cloc](https://github.com/AlDanial/cloc)
+### [cloc](https://github.com/AlDanial/cloc)
 
-### SQLite 
-[SQLite database](https://www.sqlite.org/)
+### [SQLite database](https://www.sqlite.org/)
 
 ### Java code
 The following libraries are needed to run the Java code:
@@ -33,8 +28,9 @@ The following libraries are needed to run the Java code:
 
 ### Haskell code
 The following libraries are needed to run the Haskell code:
-* [..]
-*
+* [HDBC-Sqlite3](https://hackage.haskell.org/package/HDBC-sqlite3)
+* [HDBC](https://hackage.haskell.org/package/HDBC)
+* [cassava](https://hackage.haskell.org/package/cassava) (for csv processing)
 
 Create the following values to store your local settings, such as data directories and executable directories:
 * `mySettings` of type `Settings`
