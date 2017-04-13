@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<ruleset name="MyRules"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+    <description>
+        Custom rule set for analysing student programs
+    </description>
+
+    <!-- Flow (5) -->
+    <rule ref="rulesets/java/codesize.xml/ModifiedCyclomaticComplexity"/>
+    <rule ref="rulesets/java/codesize.xml/CyclomaticComplexity"/>
+    <rule ref="rulesets/java/codesize.xml/NPathComplexity"/>
+    <rule ref="rulesets/java/optimizations.xml/PrematureDeclaration"/>
+    <rule ref="rulesets/java/empty.xml/EmptyIfStmt"/>
+
+    <!-- Idiom (3) -->
+    <rule ref="rulesets/java/design.xml/SwitchStmtsShouldHaveDefault"/>
+    <rule ref="rulesets/java/design.xml/MissingBreakInSwitch"/>
+    <rule ref="rulesets/java/optimizations.xml/AvoidInstantiatingObjectsInLoops"/>
+
+    <!-- Expressions (6) -->
+    <rule ref="rulesets/java/design.xml/AvoidReassigningParameters"/>
+    <rule ref="rulesets/java/design.xml/ConfusingTernary"/>
+    <rule ref="rulesets/java/design.xml/PositionLiteralsFirstInComparisons"/>
+    <rule ref="rulesets/java/design.xml/SimplifyBooleanReturns"/>
+    <rule ref="rulesets/java/design.xml/SimplifyBooleanExpressions"/>
+    <rule ref="rulesets/java/basic.xml/CollapsibleIfStatements"/>
+
+    <!-- Decomposition (3) -->
+    <rule ref="rulesets/java/codesize.xml/NcssMethodCount" />
+    <!-- Ncss with different treshold -->
+    <rule name="NcssMethodCount50" message="The method {0}() has an NCSS line count of {1}"
+        class="net.sourceforge.pmd.lang.java.rule.codesize.NcssMethodCountRule"
+        externalInfoUrl="https://pmd.github.io/pmd-5.5.2/pmd-java/rules/java/codesize.html#NcssMethodCount">
+        <description>x</description>
+        <priority>3</priority> 
+        <properties>
+            <property name="minimum" value="50"/> 
+        </properties>
+    </rule>
+    <rule ref="rulesets/java/design.xml/SingularField"/>
+  
+    <!-- Modularization (5) -->
+    <rule ref="rulesets/java/design.xml/GodClass"/>
+    <rule ref="rulesets/java/codesize.xml/TooManyMethods"/>
+    <rule ref="rulesets/java/codesize.xml/TooManyFields"/>
+    <rule ref="rulesets/java/coupling.xml/LawOfDemeter"/>
+    <rule ref="rulesets/java/coupling.xml/LooseCoupling"/>
+    
+</ruleset>
