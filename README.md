@@ -81,6 +81,7 @@ The payloads and indices for week 37, 50 of 2014 and week 11 and 24 from 2015 we
 ### General
 
 Table 2: Data set summary
+[Haskell] `Reports.generalInfo mySettings` + `Reports.generalLocInfo mySettings`
 
 ### RQ1
 Table 3: Summary of initial PMD run
@@ -88,6 +89,7 @@ Table 3: Summary of initial PMD run
 Table 4: Top 10 issues
 
 Table 5: Issue occurrence
+[Haskell] `Reports.issueOccs mySettings`
 [Java]
 
 Figure 1: Issues over time
@@ -95,7 +97,7 @@ Figure 1: Issues over time
 ### RQ2
 
 Table 6: Issues Fixes
-[Java]
+[Java] `Main.issueFixing()`
 
 ### RQ3
 
