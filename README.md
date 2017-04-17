@@ -23,6 +23,27 @@ SQLite, Blackbox Java API, PMD API, CPD API.
 
 ## Pre-processing
 
+### Settings
+
+Create the following values to store your local settings, such as data directories and executable directories:
+* `mySettings` of type `Settings`.
+* `myPMDSettings` of type `CPDSettings`
+* `myCPDSettings` of type `PMDSettings`
+
+### Issue selection
+
+1. Copy the payload and index files of the days below from the Blackbox server to a local folder
+   * 8 September 2014 
+   * 8 December 2014
+   * 9 March 2015
+   * 8 June 2015
+
+2. Extract the code files from these days.
+3. 
+3. Run `Main.issueSelection mySettings` that produces a csv-file with PMD output
+4. Run.. CPD
+5. 
+
 ### Preparing local database
 A local SQLite database is used to store the data needed for the analysis.
 <schema>
@@ -31,6 +52,7 @@ A local SQLite database is used to store the data needed for the analysis.
 [..]
 
 #### Extracting code files
+
 The payloads and indices for week 37, 50 of 2014 and week 11 and 24 from 2015 were retrieved from the Blackbox server.
 
 
