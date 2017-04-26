@@ -63,7 +63,8 @@ To retrieve the results described in 3.2.3, run `showNrOfStartupEventsFourWeeks(
 ### Preparing local database
 
 A local SQLite database is used to store the data needed for the analysis.
-<schema>
+
+![erd](./img/ERD.png)
 
 #### Storing Blackbox data
 [Java] Run `Main.fillSpaDB(BlackboxDB db)` to store (startup) events, snapshots and extensions.
