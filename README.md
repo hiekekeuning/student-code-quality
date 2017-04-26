@@ -62,7 +62,11 @@ To retrieve the results described in 3.2.3, run `showNrOfStartupEventsFourWeeks(
 
 ### Preparing local database
 
-A local SQLite database is used to store the data needed for the analysis.
+A local SQLite database is used to store the data needed for the analysis. The purple tables contain copied
+data from Blackbox, the green tables contain data from running CMD and CPD, the pink table from running cloc
+and the black table contains the names of the issues and the first letter of the corresponding category ([data](./data/categories.csv)).
+
+
 
 ![erd](./img/ERD.png)
 
