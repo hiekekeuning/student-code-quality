@@ -73,6 +73,8 @@ and the black table contains the names of the issues and the first letter of the
 
 ![erd](./img/ERD.png)
 
+The database can be created using this [SQL query](./SQL/createDatabase.png).
+
 #### Storing Blackbox data
 [Java] Run `Main.fillSpaDB(BlackboxDB db)` to store (startup) events, snapshots and extensions.
 
@@ -81,9 +83,9 @@ and the black table contains the names of the issues and the first letter of the
 1. Retrieve the payloads and indices for week 37, 50 of 2014 and week 11 and 24 of 2015 from the Blackbox server and store them in the binDataDir.
 
 2. [Haskell] Run `Processing.CodeFiles.processAll` to extract code, run cloc/PMD/CPD, store the results into the database and remove the
-code.
+code (this takes a long time!).
 
-3. [SQL] Fill the issue3 table [..]
+3. The issue table contains one record for each duplicate, instead of the aggregated number of issues from PMD. The view issue2 is created to provide consistent information by aggregating duplicates (duplicate50 and duplicate100). Fill the issue3 table with the data from view issue2.
 
 4. [SQL] Cleaning database [..]
 
@@ -91,29 +93,26 @@ code.
 
 ### General
 
-Table 2: Data set summary
-[Haskell] `Reports.generalInfo mySettings` + `Reports.generalLocInfo mySettings`
+[Haskell] For *Table 2: Data set summary* run `Reporting.Reports.generalInfo mySettings` and `Reporting.Reports.generalLocInfo mySettings`.
 
 ### RQ1
 Table 3: Summary of initial PMD run
 
 Table 4: Top 10 issues
 
-Table 5: Issue occurrence
-[Haskell] `Reports.issueOccs mySettings`
+[Haskell] For *Table 5: Issue occurrence* run `Reporting.Reports.issueOccs mySettings`.
 [Java]
 
-Figure 1: Issues over time
-[SQL]
+[SQL] For *Figure 1: Issues over time* run [..]
+
+
 ### RQ2
 
-Table 6: Issues Fixes
-[Java] `Main.issueFixing()`
+[Java] For *Table 6: Issues Fixes*  run `Main.issueFixing()`.
 
 ### RQ3
 
-Table 7: Extension use
-[Haskell]
+[Haskell] For * Table 7: Extension use* run [..]
 
-Figure 2: Issues and extension use
-[SQL]
+[SQL] For *Figure 2: Issues and extension use* run [..]
+
