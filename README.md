@@ -8,25 +8,29 @@ Both Java and Haskell is used for the automated analysis.
 
 ## Installation
 
+The following resources are needed for the analysis.
+
 ### Blackbox database
 
-The database used is not publicly available. Permission to access the [Blackbox database](https://www.bluej.org/blackbox.html) needs to be requested with the maintainers.
+The database is not publicly available. Permission to access the [Blackbox database](https://www.bluej.org/blackbox.html) needs to be requested with the maintainers.
 
 ### [PMD Version 5.5.2](http://pmd.github.io/pmd-5.5.2/)
 Add custom ruleset [myrules](./PMD/myrules.xml) to pmd-java-5.5.2.jar.
 
 ### [CPD Version 5.4.1](http://pmd.github.io/pmd-5.4.1/usage/cpd-usage.html)
-A custom CPDRunner `CPDRunner.java` /bat file
+A custom CPDRunner `CPDRunner.java` has been created, which runs CPD on all files in a folder separately, avoiding the overhead of restarting CPD for each file. The runner can be executed using a [bat file](./Java/jcpd.bat).
 
 ### [cloc](https://github.com/AlDanial/cloc)
+Used for counting lines of code.
 
 ### [SQLite database](https://www.sqlite.org/)
+Used for storing results locally.
 
 ### Java code
 The following libraries are needed to run the Java code:
 * blackboxAnalyser Java library (for connecting to the Blackbox DB)
 * PMD 5.4.1 libraries (for CPD)
-* JUnit (for unit tests in `BBTests.java`)
+* JUnit (for unit tests in [BBTests](./Java/BBTests.java))
 
 ### Haskell code
 The following libraries are needed to run the Haskell code:
@@ -34,7 +38,7 @@ The following libraries are needed to run the Haskell code:
 * [HDBC](https://hackage.haskell.org/package/HDBC)
 * [cassava](https://hackage.haskell.org/package/cassava) (for csv processing)
 
-Create the following values to store your local settings, such as data directories and executable directories:
+Create the following values in [Main](./Haskell/Main.hs) to store your local settings, such as data directories and executable directories:
 * `mySettings` of type `Settings`
 * `myPMDSettings` of type `CPDSettings`
 * `myCPDSettings` of type `PMDSettings`
@@ -51,22 +55,21 @@ Create the following values to store your local settings, such as data directori
 
 2. [Java] Extract the code files from these days into folder '4daysJ' using `Main.extract4Days()`.
 
-3. [Haskell] Run `Main.issueSelection mySettings` that produces a csv-file with PMD output
-4. [Haskell] Run `Main.issueSelectionCPD`,
-5. [Haskell] Run `processCPDFile "dir\\4daysJ-cpd50.csv"`
-6. xlsx for averages etc.
+3. [Haskell] Run `Main.issueSelection mySettings` that produces a csv-file with PMD output.
+5. [Haskell] Run `Processing.PMD.freqAnalysis "dir\\<filename>.csv"` with the name of the csv-file.
+4. [Haskell] Run `Main.issueSelectionCPD`.
+6. The results are combined into an excel-file for further processing.
 
 ### Extension selection
 
-To retrieve the results described in 3.2.3, run `showNrOfStartupEventsFourWeeks()` in `BlackboxDB`.
+[Java] To retrieve the results described in 3.2.3, run `showAllExtensionsSelected4Weeks()` in `BlackboxDB`.
 
 ### Preparing local database
 
 A local SQLite database is used to store the data needed for the analysis. The purple tables contain copied
 data from Blackbox, the green tables contain data from running CMD and CPD, the pink table from running cloc
-and the black table contains the names of the issues and the first letter of the corresponding category ([data](./data/categories.csv)).
-
-
+and the black table contains the names of the issues and the first letter of the corresponding category
+([data](./data/categories.csv)).
 
 ![erd](./img/ERD.png)
 
@@ -74,14 +77,15 @@ and the black table contains the names of the issues and the first letter of the
 [Java] Run `Main.fillSpaDB(BlackboxDB db)` to store (startup) events, snapshots and extensions.
 
 #### Storing code file analyses
-The payloads and indices for week 37, 50 of 2014 and week 11 and 24 from 2015 were retrieved from the Blackbox server.
 
-##### cloc
-##### PMD
-##### CPD
+1. Retrieve the payloads and indices for week 37, 50 of 2014 and week 11 and 24 of 2015 from the Blackbox server and store them in the binDataDir.
 
-#### Cleaning database
-[..]
+2. [Haskell] Run `Processing.CodeFiles.processAll` to extract code, run cloc/PMD/CPD, store the results into the database and remove the
+code.
+
+3. [SQL] Fill the issue3 table [..]
+
+4. [SQL] Cleaning database [..]
 
 ## Reporting
 
