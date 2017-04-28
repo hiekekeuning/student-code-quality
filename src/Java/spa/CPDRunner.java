@@ -16,7 +16,7 @@ public class CPDRunner
 		    return;   
 	    }
 	    
-		String dir = args[0];
+        String dir = args[0];
 		int minTokens = Integer.parseInt(args[1]);
 		String outFolder = args[2];
 		String outFilename = args[3];
@@ -44,9 +44,7 @@ public class CPDRunner
 		StringBuilder errOut = new StringBuilder();
 		int totalCnt = 0;
 		ArrayList<Match> matchList = new ArrayList<>();
-		
-		/*SpaDB db = new SpaDB(SpaDB.testDbUrl);
-		PreparedStatement ps = db.startAddIssues();*/
+
 		for(File file: files)
 		{
 			try
@@ -70,14 +68,6 @@ public class CPDRunner
 					String csv = config.getRenderer().render(cpd.getMatches());
 					dupOut.append(csv.substring(csv.indexOf('\n') + 1)); // remove header
 					totalCnt += matchList.size();
-					
-					// db
-					/*String filename = file.getName();
-					String filenameNoEx = filename.substring(0, filename.lastIndexOf("."));
-					Snapshot ss = Utils.getSSFromFilename(filenameNoEx);
-				
-					db.addIssue(ps, ss.sfid,ss.evid, "Duplicate", cnt);
-					*/
 				}
 			}
 			catch (Exception e)
@@ -85,8 +75,6 @@ public class CPDRunner
 				errOut.append(file.getName() + "," + e.getMessage() + "\n");
 			}
 		}
-
-		/*db.commitStat(ps);*/
 		
 		// write output to files
 		try
