@@ -15,10 +15,10 @@ The following resources are needed for the analysis.
 The database is not publicly available. Permission to access the [Blackbox database](https://www.bluej.org/blackbox.html) needs to be requested with the maintainers.
 
 ### [PMD Version 5.5.2](http://pmd.github.io/pmd-5.5.2/)
-Add custom ruleset [myrules](./PMD/myrules.xml) to pmd-java-5.5.2.jar.
+Add custom ruleset [myrules](./other/myrules.xml) to pmd-java-5.5.2.jar.
 
 ### [CPD Version 5.4.1](http://pmd.github.io/pmd-5.4.1/usage/cpd-usage.html)
-A custom CPDRunner `CPDRunner.java` has been created, which runs CPD on all files in a folder separately, avoiding the overhead of restarting CPD for each file. The runner can be executed using a [bat file](./Java/jcpd.bat).
+A custom CPDRunner `CPDRunner.java` has been created, which runs CPD on all files in a folder separately, avoiding the overhead of restarting CPD for each file. The runner can be executed using a [bat file](./src/Java/jcpd.bat).
 
 ### [cloc](https://github.com/AlDanial/cloc)
 Used for counting lines of code.
@@ -30,7 +30,7 @@ Used for storing results locally.
 The following libraries are needed to run the Java code:
 * blackboxAnalyser Java library (for connecting to the Blackbox DB)
 * PMD 5.4.1 libraries (for CPD)
-* JUnit (for unit tests in [BBTests](./Java/BBTests.java))
+* JUnit (for unit tests in [BBTests](./src/Java/BBTests.java))
 
 ### Haskell code
 The following libraries are needed to run the Haskell code:
@@ -38,7 +38,7 @@ The following libraries are needed to run the Haskell code:
 * [HDBC](https://hackage.haskell.org/package/HDBC)
 * [cassava](https://hackage.haskell.org/package/cassava) (for csv processing)
 
-Create the following values in [Main](./Haskell/Main.hs) to store your local settings, such as data directories and executable directories:
+Create the following values in [Main](./src/Haskell/Main.hs) to store your local settings, such as data directories and executable directories:
 * `mySettings` of type `Settings`
 * `myPMDSettings` of type `CPDSettings`
 * `myCPDSettings` of type `PMDSettings`
@@ -69,11 +69,11 @@ Create the following values in [Main](./Haskell/Main.hs) to store your local set
 A local SQLite database is used to store the data needed for the analysis. The purple tables contain copied
 data from Blackbox, the green tables contain data from running CMD and CPD, the pink table from running cloc
 and the black table contains the names of the issues and the first letter of the corresponding category
-([data](./data/categories.csv)).
+([data](./other/categories.csv)).
 
 ![erd](./img/ERD.png)
 
-The database can be created using this [SQL query](./SQL/createDatabase.png).
+The database can be created using this [SQL query](./src/SQL/createDatabase.png).
 
 #### Storing Blackbox data
 [Java] Run `Main.fillSpaDB(BlackboxDB db)` to store (startup) events, snapshots and extensions.
