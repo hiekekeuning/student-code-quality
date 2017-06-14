@@ -12,7 +12,7 @@ The following resources are needed for the analysis.
 
 ### Blackbox database
 
-The database is not publicly available. Permission to access the [Blackbox database](https://www.bluej.org/blackbox.html) needs to be requested with the maintainers.
+The database is not publicly available. Permission to access the [Blackbox database] (https://www.bluej.org/blackbox.html) needs to be requested with the maintainers.
 
 ### [PMD Version 5.5.2](http://pmd.github.io/pmd-5.5.2/)
 Add custom ruleset [myrules](./other/myrules.xml) to pmd-java-5.5.2.jar.
@@ -29,8 +29,13 @@ Used for storing results locally.
 ### Java code
 The following libraries are needed to run the Java code:
 * blackboxAnalyser Java library (for connecting to the Blackbox DB)
-* PMD 5.4.1 libraries (for CPD)
+* PMD 5.4.1 libraries (for custom CPD runner)
 * JUnit (for unit tests in [BBTests](./src/Java/BBTests.java))
+
+Set the values of a number of constants to store local settings, such as data directories and executable directories:
+* Main.dbUrl
+* Main.inDir4days and Main.outDir4days
+* Main.outFileNameFix
 
 ### Haskell code
 The following libraries are needed to run the Haskell code:
@@ -38,7 +43,7 @@ The following libraries are needed to run the Haskell code:
 * [HDBC](https://hackage.haskell.org/package/HDBC)
 * [cassava](https://hackage.haskell.org/package/cassava) (for csv processing)
 
-Create the following values in [Main](./src/Haskell/Main.hs) to store your local settings, such as data directories and executable directories:
+Create the following values in [Main](./src/Haskell/Main.hs) to store your local settings:
 * `mySettings` of type `Settings`
 * `myPMDSettings` of type `CPDSettings`
 * `myCPDSettings` of type `PMDSettings`
@@ -53,7 +58,7 @@ Create the following values in [Main](./src/Haskell/Main.hs) to store your local
    * 9 March 2015
    * 8 June 2015
 
-2. [Java] Extract the code files from these days into folder '4daysJ' using `Main.extract4Days()`.
+2. [Java] 4Extract the code files from these days into folder '4daysJ' using `Main.extract4Days(<inFolder>, <outFolder>)`.
 
 3. [Haskell] Run `Main.issueSelection mySettings` that produces a csv-file with PMD output.
 5. [Haskell] Run `Processing.PMD.freqAnalysis "dir\\<filename>.csv"` with the name of the csv-file.
@@ -101,7 +106,7 @@ Table 3: Summary of initial PMD run
 Table 4: Top 10 issues
 
 [Haskell] For *Table 5: Issue occurrence* run `Reporting.Reports.issueOccs mySettings`.
-[Java]
+[Java] Set `Main.csvFile` to the location of the csv-file and run `CSVR.java`.
 
 [SQL] For *Figure 1: Issues over time* run [..]
 
