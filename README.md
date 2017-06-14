@@ -33,9 +33,9 @@ The following libraries are needed to run the Java code:
 * JUnit (for unit tests in [BBTests](./src/Java/BBTests.java))
 
 Set the values of a number of constants to store local settings, such as data directories and executable directories:
-* Main.dbUrl
-* Main.inDir4days and Main.outDir4days
-* Main.outFileNameFix
+* `Main.dbUrl`
+* `Main.inDir4days` and `Main.outDir4days`
+* `Main.outFileNameFix`
 
 ### Haskell code
 The following libraries are needed to run the Haskell code:
