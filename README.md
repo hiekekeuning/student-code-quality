@@ -18,7 +18,7 @@ The database is not publicly available. Permission to access the [Blackbox datab
 Add custom ruleset [myrules](./other/myrules.xml) to pmd-java-5.5.2.jar.
 
 ### [CPD Version 5.4.1](http://pmd.github.io/pmd-5.4.1/usage/cpd-usage.html)
-A custom CPDRunner `CPDRunner.java` has been created, which runs CPD on all files in a folder separately, avoiding the overhead of restarting CPD for each file. The runner can be executed using a [bat file](./src/Java/jcpd.bat).
+A custom CPDRunner ([CPDRunner.java](./src/Java/spa/CPDRunner.java)) has been created, which runs CPD on all files in a folder separately, avoiding the overhead of restarting CPD for each file. The runner can be executed using a [bat file](./src/Java/jcpd.bat).
 
 ### [cloc](https://github.com/AlDanial/cloc)
 Used for counting lines of code.
@@ -30,9 +30,9 @@ Used for storing results locally.
 The following libraries are needed to run the Java code:
 * blackboxAnalyser Java library (for connecting to the Blackbox DB)
 * PMD 5.4.1 libraries (for custom CPD runner)
-* JUnit (for unit tests in [BBTests](./src/Java/BBTests.java))
+* JUnit (for unit tests in [BBTests](./src/Java/spa/BBTests.java))
 
-Set the values of a number of constants to store local settings, such as data directories and executable directories:
+Set the values of a number of constants to store local settings in [Main.java](./src/Java/spa/Main.java), such as data directories and executable directories:
 * `Main.dbUrl`
 * `Main.inDir4days` and `Main.outDir4days`
 * `Main.outFileNameFix`
