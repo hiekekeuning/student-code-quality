@@ -18,7 +18,7 @@ The database is not publicly available. Permission to access the [Blackbox datab
 Add custom ruleset [myrules](./other/myrules.xml) to pmd-java-5.5.2.jar.
 
 ### [CPD Version 5.4.1](http://pmd.github.io/pmd-5.4.1/usage/cpd-usage.html)
-A custom CPDRunner ([CPDRunner.java](./src/Java/spa/CPDRunner.java)) has been created, which runs CPD on all files in a folder separately, avoiding the overhead of restarting CPD for each file. The runner can be executed using a [bat file](./src/Java/jcpd.bat).
+A custom CPDRunner ([CPDRunner.java](./src/Java/spa/CPDRunner.java)) has been created, which runs CPD on all files in a folder separately, avoiding the overhead of restarting CPD for each file. The runner can be executed using a [bat file](./other/jcpd.bat).
 
 ### [cloc](https://github.com/AlDanial/cloc)
 Used for counting lines of code.
@@ -78,7 +78,7 @@ and the black table contains the names of the issues and the first letter of the
 
 ![erd](./img/ERD.png)
 
-The database can be created using this [SQL query](./src/SQL/createDatabase.png).
+The database can be created using this [SQL query](./src/SQL/createDatabase.sql).
 
 #### Storing Blackbox data
 [Java] Run `Main.fillSpaDB(BlackboxDB db)` to store (startup) events, snapshots and extensions.
@@ -108,8 +108,7 @@ Table 4: Top 10 issues
 [Haskell] For *Table 5: Issue occurrence* run `Reporting.Reports.issueOccs mySettings`.
 [Java] Set `Main.csvFile` to the location of the csv-file and run `CSVR.java`.
 
-[SQL] For *Figure 1: Issues over time* run [..]
-
+[Haskell, SQL] For *Figure 1: Issues over time* run [query](./src/SQL/rq1Figure1.sql). The number of unique source files per month, used in these queries, are calculated by `dbUniqueSFPerMonth sett`.
 
 ### RQ2
 
@@ -117,7 +116,7 @@ Table 4: Top 10 issues
 
 ### RQ3
 
-[Haskell] For * Table 7: Extension use* run [..]
+[SQL] For *Table 7: Extension use* execute [query](./src/SQL/rq3Table7.sql)
 
-[SQL] For *Figure 2: Issues and extension use* run [..]
+[SQL] For *Figure 2: Issues and extension use* run [queries][./src/SQL/rq3Figure2.sql]
 
