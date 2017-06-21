@@ -5,17 +5,17 @@ import java.sql.*;
 
 public class Main
 {
-    public static final String testDbUrl = "jdbc:sqlite:C:\\replace_by_dir\\spa.db";
-	public static final String inDir4days = "C:\\replace_by_dir\\4days", outDir4days = "C:\\replace_by_dir\\4days";
+    public static final String dbUrl = "jdbc:sqlite:C:\\replace_by_dir\\spa.db";
+    public static final String inDir4days = "C:\\replace_by_dir\\4days", outDir4days = "C:\\replace_by_dir\\4days";
     public static final String outFileNameFix = "C:\\replace_by_dir\\issueFixing.csv";
     
 	public static void main(String[] args) throws IOException, SQLException, Exception
 	{
 	    
 	    /* Issue selection step 2 */
-		//extract4Days(inDir4days, outDir4days);
+	    //extract4Days(inDir4days, outDir4days);
 	    
-	    BlackboxDB blackboxDB = new BlackboxDB(testDbUrl);
+	    BlackboxDB blackboxDB = new BlackboxDB(dbUrl);
 	    
 	    /* Extension selection */ 
         //blackboxDB.showAllExtensionsSelected4Weeks();
