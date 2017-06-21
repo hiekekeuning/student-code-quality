@@ -116,7 +116,7 @@ Table 4: Top 10 issues
 
 ### RQ3
 
-[SQL] For *Table 7: Extension use* execute [query](./src/SQL/rq3Table7.sql)
+[SQL] For *Table 7: Extension use* execute [query](./src/SQL/rq3Table7.sql).
 
-[SQL] For *Figure 2: Issues and extension use* run [queries][./src/SQL/rq3Figure2.sql]
+[SQL] For *Figure 2: Issues and extension use* run [queries](./src/SQL/rq3Figure2.sql).
 
