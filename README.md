@@ -78,7 +78,7 @@ and the black table contains the names of the issues and the first letter of the
 
 ![erd](./img/ERD.png)
 
-The database can be created using this [SQL query](./src/SQL/createDatabase.sql).
+The database can be created using queries from [this file](./src/SQL/createDatabase.sql).
 
 #### Storing Blackbox data
 [Java] Run `Main.fillSpaDB(BlackboxDB db)` to store (startup) events, snapshots and extensions.
@@ -92,7 +92,11 @@ code (this takes a long time!).
 
 3. The issue table contains one record for each duplicate, instead of the aggregated number of issues from PMD. The view issue2 is created to provide consistent information by aggregating duplicates (duplicate50 and duplicate100). Fill the issue3 table with the data from view issue2.
 
-4. [SQL] Cleaning database [..]
+#### Optimising and cleaning database
+
+* Add indices.
+* [SQL] Add filenames to the issue table with [query](./src/SQL/addFileNames.sql).
+* [SQL] Cleaning database [query](./src/SQL/cleaning.sql).
 
 ## Reporting
 
