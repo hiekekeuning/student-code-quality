@@ -101,12 +101,10 @@ code (this takes a long time!).
 [Haskell] For *Table 2: Data set summary* run `Reporting.Reports.generalInfo mySettings` and `Reporting.Reports.generalLocInfo mySettings`.
 
 ### RQ1
-Table 3: Summary of initial PMD run
+Table 3: Summary of initial PMD run and Table 4: Top 10 issues, see section on Issue selection above.
 
-Table 4: Top 10 issues
-
-[Haskell] For *Table 5: Issue occurrence* run `Reporting.Reports.issueOccs mySettings`.
-[Java] Set `Main.csvFile` to the location of the csv-file and run `CSVR.java`.
+[Haskell, Java] For *Table 5: Issue occurrence* run `Reporting.Reports.issueOccs mySettings`.
+Set `Main.csvFile` to the location of the csv-file and run [CSVR.java](./src/Java/spa/CSVR.java).
 
 [Haskell, SQL] For *Figure 1: Issues over time* run [query](./src/SQL/rq1Figure1.sql). The number of unique source files per month, used in these queries, are calculated by `dbUniqueSFPerMonth sett`.
 
