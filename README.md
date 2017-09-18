@@ -1,6 +1,6 @@
 # Student code quality
 
-This document describes the steps to perform the automated analysis of student programs, as presented in the paper 'Code Quality Issues in Student Programs' [to appear in proceedings of ITiCSE 2017, [online](http://www.cs.uu.nl/research/techreps/repo/CS-2017/2017-006.pdf)].
+This document describes the steps to perform the automated analysis of student programs, as presented in the paper 'Code Quality Issues in Student Programs' (in [Proceedings of ITiCSE 2017](http://dl.acm.org/citation.cfm?id=3059061)).
 The code is provided to perform checks, extend the analysis and allow replication. Comments and questions can be emailed to the first author.
 Both Java and Haskell is used for the automated analysis.
 
