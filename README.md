@@ -10,12 +10,12 @@ The following resources are needed for the analysis.
 
 ### Blackbox database
 
-The database is not publicly available. Permission to access the [Blackbox database] (https://www.bluej.org/blackbox.html) needs to be requested with the maintainers.
+The database is not publicly available. Permission to access the [Blackbox database](https://bluej.org/blackbox/) needs to be requested with the maintainers.
 
-### [PMD Version 5.5.2](http://pmd.github.io/pmd-5.5.2/)
+### [PMD Version 5.5.2](http://pmd.sourceforge.io/pmd-5.5.2/)
 Add custom ruleset [myrules](./other/myrules.xml) to pmd-java-5.5.2.jar.
 
-### [CPD Version 5.4.1](http://pmd.github.io/pmd-5.4.1/usage/cpd-usage.html)
+### [CPD Version 5.4.1](http://pmd.sourceforge.io/pmd-5.4.1/usage/cpd-usage.html)
 A custom CPDRunner ([CPDRunner.java](./src/Java/spa/CPDRunner.java)) has been created, which runs CPD on all files in a folder separately, avoiding the overhead of restarting CPD for each file. The runner can be executed using a [bat file](./other/jcpd.bat).
 
 ### [cloc](https://github.com/AlDanial/cloc)
